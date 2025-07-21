@@ -303,19 +303,6 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                     <span className="text-blue-600 font-semibold">1,204</span>
                   </div>
                 </div>
-                <hr className="border-gray-200 my-3" />
-                <div className="text-sm">
-                  <p className="text-gray-600 mb-1">Strengthen your profile with an AI writing assistant</p>
-                  <div className="flex items-center text-yellow-600">
-                    <Award className="w-4 h-4 mr-1" />
-                    <span className="font-semibold">Try Premium for $0</span>
-                  </div>
-                </div>
-                <hr className="border-gray-200 my-3" />
-                <div className="flex items-center text-sm text-gray-600">
-                  <div className="w-4 h-4 bg-gray-400 rounded mr-2"></div>
-                  <span>My items</span>
-                </div>
               </div>
             </div>
 
@@ -493,7 +480,9 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                     </div>
                   </div>
                 </div>
-                <button className="text-sm text-gray-600 hover:text-blue-600 mt-4">Show all activity →</button>
+                <div className="border-t border-gray-200 pt-4 mt-4 text-center">
+                  <button className="text-base font-semibold text-gray-600 hover:text-blue-600">Show all activity →</button>
+                </div>
               </div>
             </div>
 
@@ -530,7 +519,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllExperiences(!showAllExperiences)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllExperiences ? 'Show less' : `Show all ${allExperiences.length} experiences →`}
                   </button>
@@ -560,7 +549,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllEducation(!showAllEducation)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllEducation ? 'Show less' : `Show all ${allEducation.length} education →`}
                   </button>
@@ -596,7 +585,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllLicenses(!showAllLicenses)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllLicenses ? 'Show less' : `Show all ${allLicenses.length} licenses & certifications →`}
                   </button>
@@ -626,7 +615,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllVolunteer(!showAllVolunteer)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllVolunteer ? 'Show less' : `Show all ${allVolunteer.length} volunteer experiences →`}
                   </button>
@@ -654,7 +643,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllSkills(!showAllSkills)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllSkills ? 'Show less' : `Show all ${allSkills.length} skills →`}
                   </button>
@@ -749,7 +738,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllAccomplishments(!showAllAccomplishments)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllAccomplishments ? 'Show less' : 'Show all accomplishments →'}
                   </button>
@@ -777,7 +766,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
                     onClick={() => setShowAllInterests(!showAllInterests)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllInterests ? 'Show less' : 'Show all interests →'}
                   </button>
@@ -855,7 +844,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="border-t border-gray-200 pt-3 mt-3 text-center">
                   <button 
                     onClick={() => setShowAllPeopleKnow(!showAllPeopleKnow)}
-                    className="text-sm text-gray-600 hover:text-blue-600"
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
                   >
                     {showAllPeopleKnow ? 'Show less' : 'Show more →'}
                   </button>
