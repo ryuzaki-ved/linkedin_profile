@@ -25,7 +25,8 @@ import {
   Repeat2,
   Send,
   Camera,
-  ChevronUp
+  ChevronUp,
+  Diamond
 } from 'lucide-react';
 
 function App() {
@@ -436,7 +437,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                   </button>
                 </div>
                 <div className="space-y-4">
-                  <div className="border-b border-gray-200 pb-4">
+                  <div className="pb-4">
                     <p className="text-sm text-gray-600 mb-2">Sarah posted this • 2d</p>
                     <p className="text-gray-900 mb-3">
                       Excited to share that our team just shipped a major feature that improves page load times by 40%! 🚀
@@ -463,7 +464,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                       </button>
                     </div>
                   </div>
-                  <div className="border-b border-gray-200 pb-4">
+                  <div className="pb-4">
                     <p className="text-sm text-gray-600 mb-2">Sarah commented on this • 5d</p>
                     <p className="text-gray-900 mb-3">
                       Great insights on microservices architecture! I've found that proper service boundaries are crucial for maintainability.
@@ -502,6 +503,23 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                         <p className="text-sm text-gray-600">{exp.duration}</p>
                         <p className="text-sm text-gray-600">{exp.location}</p>
                         <p className="text-gray-700 mt-2">{exp.description}</p>
+                        {!showAllExperiences && exp.skills && exp.skills.length > 0 && (
+                          <div className="flex items-center space-x-2 mt-2">
+                            <Diamond className="w-3 h-3 text-gray-600" />
+                            <div className="text-sm">
+                              <span className="font-bold text-gray-900">{exp.skills[0]}</span>
+                              {exp.skills.length > 1 && (
+                                <>
+                                  <span className="text-gray-600">, </span>
+                                  <span className="font-bold text-gray-900">{exp.skills[1]}</span>
+                                </>
+                              )}
+                              {exp.skills.length > 2 && (
+                                <span className="text-gray-600"> and {exp.skills.length - 2} additional skills</span>
+                              )}
+                            </div>
+                          </div>
+                        )}
                         {showAllExperiences && (
                           <div className="flex items-center space-x-4 mt-2">
                             <span className="text-sm font-semibold text-gray-700">Skills:</span>
@@ -626,7 +644,12 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
             {/* Skills Section */}
             <div className="bg-white rounded-lg border border-gray-200 mb-4">
               <div className="p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">Skills</h2>
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-xl font-semibold text-gray-900">Skills</h2>
+                  <button className="text-sm text-gray-600 hover:text-blue-600">
+                    See related projects & experience
+                  </button>
+                </div>
                 <div className="space-y-4">
                   {(showAllSkills ? allSkills : allSkills.slice(0, 6)).map((skill, index) => (
                     <div key={index}>
