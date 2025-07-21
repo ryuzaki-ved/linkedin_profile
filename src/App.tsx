@@ -26,7 +26,8 @@ import {
   Send,
   Camera,
   ChevronUp,
-  Diamond
+  Diamond,
+  Gem
 } from 'lucide-react';
 
 function App() {
@@ -40,6 +41,19 @@ function App() {
   const [showAllInterests, setShowAllInterests] = useState(false);
   const [showAllPeopleViewed, setShowAllPeopleViewed] = useState(false);
   const [showAllPeopleKnow, setShowAllPeopleKnow] = useState(false);
+  const [expandedExperienceIds, setExpandedExperienceIds] = useState(new Set());
+
+  const toggleExperienceDescription = (id) => {
+    setExpandedExperienceIds(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
 
   const aboutText = `Passionate Senior Software Engineer with 8+ years of experience building scalable web applications and leading cross-functional teams. Currently at Google, working on innovative products that impact millions of users worldwide.
 
@@ -63,7 +77,14 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       type: "Full-time",
       duration: "Jan 2022 - Present · 2 yrs 11 mos",
       location: "Mountain View, California, United States",
-      description: "Leading development of high-impact features for Google Search, serving billions of users daily. Architected scalable solutions resulting in 25% performance improvements.",
+      description: [
+        "Leading development of high-impact features for Google Search, serving billions of users daily",
+        "Architected scalable solutions resulting in 25% performance improvements and reduced latency",
+        "Mentored 5+ junior engineers and established best practices for code reviews and testing",
+        "Collaborated with cross-functional teams to deliver features used by over 1 billion users",
+        "Implemented microservices architecture that improved system reliability by 40%",
+        "Led technical discussions and design reviews for critical infrastructure components"
+      ],
       skills: ["React", "TypeScript", "Node.js", "Python", "Kubernetes"]
     },
     {
@@ -75,7 +96,13 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       type: "Full-time",
       duration: "Jun 2019 - Dec 2021 · 2 yrs 7 mos",
       location: "Menlo Park, California, United States",
-      description: "Developed and maintained React components for Facebook's main platform. Collaborated with design teams to implement pixel-perfect UIs.",
+      description: [
+        "Developed and maintained React components for Facebook's main platform serving 2.8B users",
+        "Collaborated with design teams to implement pixel-perfect UIs and improve user experience",
+        "Optimized component performance resulting in 30% faster page load times",
+        "Built reusable component library used across 15+ product teams",
+        "Participated in on-call rotations and resolved critical production issues"
+      ],
       skills: ["React", "JavaScript", "GraphQL", "PHP"]
     },
     {
@@ -87,7 +114,12 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       type: "Full-time",
       duration: "Aug 2017 - May 2019 · 1 yr 10 mos",
       location: "San Francisco, California, United States",
-      description: "Built responsive web applications using React and Redux. Implemented accessibility features and optimized for mobile devices.",
+      description: [
+        "Built responsive web applications using React and Redux for Airbnb's booking platform",
+        "Implemented accessibility features achieving WCAG 2.1 AA compliance",
+        "Optimized for mobile devices resulting in 20% increase in mobile conversions",
+        "Collaborated with UX team to A/B test new features and improve user engagement"
+      ],
       skills: ["React", "Redux", "CSS", "JavaScript"]
     }
   ];
@@ -502,10 +534,35 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                         <p className="text-gray-700">{exp.company} · {exp.type}</p>
                         <p className="text-sm text-gray-600">{exp.duration}</p>
                         <p className="text-sm text-gray-600">{exp.location}</p>
-                        <p className="text-gray-700 mt-2">{exp.description}</p>
+                        <ul className="text-gray-700 mt-2 space-y-1">
+                          {(expandedExperienceIds.has(exp.id) ? exp.description : exp.description.slice(0, 3)).map((bullet, index) => (
+                            <li key={index} className="flex items-start">
+                              <span className="w-1 h-1 bg-gray-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {exp.description.length > 3 && (
+                          <button 
+                            onClick={() => toggleExperienceDescription(exp.id)}
+                            className="text-blue-600 hover:underline mt-2 font-semibold flex items-center text-sm"
+                          >
+                            {expandedExperienceIds.has(exp.id) ? (
+                              <>
+                                <span>...see less</span>
+                                <ChevronUp className="w-4 h-4 ml-1" />
+                              </>
+                            ) : (
+                              <>
+                                <span>...see more</span>
+                                <ChevronDown className="w-4 h-4 ml-1" />
+                              </>
+                            )}
+                          </button>
+                        )}
                         {!showAllExperiences && exp.skills && exp.skills.length > 0 && (
                           <div className="flex items-center space-x-2 mt-2">
-                            <Diamond className="w-3 h-3 text-gray-600" />
+                            <Gem className="w-6 h-4 text-gray-800" />
                             <div className="text-sm">
                               <span className="font-bold text-gray-900">{exp.skills[0]}</span>
                               {exp.skills.length > 1 && (
@@ -646,9 +703,6 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h2 className="text-xl font-semibold text-gray-900">Skills</h2>
-                  <button className="text-sm text-gray-600 hover:text-blue-600">
-                    See related projects & experience
-                  </button>
                 </div>
                 <div className="space-y-4">
                   {(showAllSkills ? allSkills : allSkills.slice(0, 6)).map((skill, index) => (
