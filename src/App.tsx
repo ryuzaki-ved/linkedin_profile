@@ -265,20 +265,20 @@ Key Skills:
   ];
 
   const allPeopleViewed = [
-    { name: "Michael Chen", title: "Product Manager at Apple", mutualConnections: 0, imageUrl: "/images/people/person1.jpg" },
-    { name: "Emily Rodriguez", title: "UX Designer at Netflix", mutualConnections: 0, imageUrl: "/images/people/person2.jpg" },
-    { name: "David Kim", title: "Data Scientist at Microsoft", mutualConnections: 0, imageUrl: "/images/people/person3.jpg" },
-    { name: "Lisa Wang", title: "Engineering Manager at Tesla", mutualConnections: 0, imageUrl: "/images/people/person4.jpg" },
-    { name: "James Wilson", title: "DevOps Engineer at Amazon", mutualConnections: 0, imageUrl: "/images/people/person5.jpg" },
-    { name: "Maria Garcia", title: "Frontend Developer at Spotify", mutualConnections: 0, imageUrl: "/images/people/person6.jpg" }
+    { name: "Michael Chen", title: "Product Manager at Apple", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=48&h=48&fit=crop&crop=face" },
+    { name: "Emily Rodriguez", title: "UX Designer at Netflix", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=48&h=48&fit=crop&crop=face" },
+    { name: "David Kim", title: "Data Scientist at Microsoft", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face" },
+    { name: "Lisa Wang", title: "Engineering Manager at Tesla", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&h=48&fit=crop&crop=face" },
+    { name: "James Wilson", title: "DevOps Engineer at Amazon", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=48&h=48&fit=crop&crop=face" },
+    { name: "Maria Garcia", title: "Frontend Developer at Spotify", mutualConnections: 0, imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=48&h=48&fit=crop&crop=face" }
   ];
 
   const allPeopleKnow = [
-    { name: "Alex Thompson", title: "Full Stack Developer at Stripe", mutualConnections: 2, imageUrl: "/images/people/person7.jpg" },
-    { name: "Jessica Wu", title: "Technical Lead at Amazon", mutualConnections: 5, imageUrl: "/images/people/person8.jpg" },
-    { name: "Robert Martinez", title: "Senior Developer at Shopify", mutualConnections: 3, imageUrl: "/images/people/person9.jpg" },
-    { name: "Amanda Foster", title: "Software Architect at Adobe", mutualConnections: 4, imageUrl: "/images/people/person10.jpg" },
-    { name: "Kevin Chang", title: "Mobile Developer at Uber", mutualConnections: 1, imageUrl: "/images/people/person11.jpg" }
+    { name: "Alex Thompson", title: "Full Stack Developer at Stripe", mutualConnections: 2, imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=48&h=48&fit=crop&crop=face" },
+    { name: "Jessica Wu", title: "Technical Lead at Amazon", mutualConnections: 5, imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=48&h=48&fit=crop&crop=face" },
+    { name: "Robert Martinez", title: "Senior Developer at Shopify", mutualConnections: 3, imageUrl: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=48&h=48&fit=crop&crop=face" },
+    { name: "Amanda Foster", title: "Software Architect at Adobe", mutualConnections: 4, imageUrl: "https://images.unsplash.com/photo-1548142813-c348350df52b?w=48&h=48&fit=crop&crop=face" },
+    { name: "Kevin Chang", title: "Mobile Developer at Uber", mutualConnections: 1, imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=48&h=48&fit=crop&crop=face" }
   ];
 
   return (
@@ -352,7 +352,7 @@ Key Skills:
               </div>
               <div className="flex flex-col items-center text-gray-600 hover:text-gray-900 cursor-pointer">
                 <img 
-                  src="/images/profile.jpg" 
+                  src="/images/profile/profile.jpg" 
                   alt="Profile" 
                   className="w-6 h-6 rounded-full object-cover"
                   onError={(e) => {
