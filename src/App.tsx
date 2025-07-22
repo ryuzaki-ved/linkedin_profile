@@ -42,6 +42,32 @@ function App() {
   const [showAllPeopleViewed, setShowAllPeopleViewed] = useState(false);
   const [showAllPeopleKnow, setShowAllPeopleKnow] = useState(false);
   const [expandedExperienceIds, setExpandedExperienceIds] = useState(new Set());
+  const [showMoreProject1, setShowMoreProject1] = useState(false);
+  const [showMoreProject2, setShowMoreProject2] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+  const projectLink1 = "https://github.com/yourusername/options-data-manager"; // TODO: Replace with actual link
+  const projectLink2 = "https://github.com/yourusername/progress-tracker"; // TODO: Replace with actual link
+
+  const handleConnectClick = () => {
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 4000); // Hide after 4 seconds
+  };
+
+  const handleContactInfoClick = () => {
+    window.location.href = "mailto:dindorevedant28@gmail.com";
+  };
+
+  const handleMailClick = () => {
+    window.location.href = "mailto:dindorevedant28@gmail.com";
+  };
+
+  const handleGithubClick = () => {
+    window.open("https://github.com/yourusername", "_blank");
+  };
+
+  const handlePortfolioClick = () => {
+    window.open("https://yourportfolio.com", "_blank");
+  };
 
   const toggleExperienceDescription = (id) => {
     setExpandedExperienceIds(prev => {
@@ -55,93 +81,98 @@ function App() {
     });
   };
 
-  const aboutText = `Passionate Senior Software Engineer with 8+ years of experience building scalable web applications and leading cross-functional teams. Currently at Google, working on innovative products that impact millions of users worldwide.
+  const aboutText = `I'm a passionate Software Engineer and Machine Learning/Data Analyst with hands‑on experience in designing and optimizing complex data‑processing pipelines and scalable back‑end systems. In a recent role, I built and tuned sophisticated algorithms for big‑data applications—reducing end‑to‑end processing times by 37%—and collaborated with a cross‑functional team of engineers, analysts, and traders to deliver real‑time insights. As an ML & Data Analyst Intern, I engineered 4+ advanced models (classification, regression, time‑series), slashed compute time by 29%, and developed a React‑based analytics app for Motilal Oswal Fin Corp to visualize market signals and backtest strategies.
 
-Specializing in React, Node.js, and cloud architecture with a strong focus on performance optimization and user experience. I'm passionate about mentoring junior developers and contributing to open-source projects.
+I thrive on turning complex datasets into clear, actionable dashboards and building performant, maintainable systems that drive measurable business impact. I'm now seeking opportunities where I can blend deep technical problem solving with data‑driven decision making—whether that's architecting scalable data platforms, crafting high‑throughput ML services, or innovating in a dynamic product environment. Let's connect!
 
-Always learning and exploring new technologies to solve complex problems and drive business growth. I have extensive experience in agile methodologies, test-driven development, and DevOps practices.
+Key Skills:
+• Languages & Frameworks: Python • C++ • JavaScript (Node.js, React)
+• Data & ML: Hadoop • Pandas • scikit‑learn • TensorFlow • Time‑Series Analysis
+• Algorithms & Optimization: Advanced DSA • Big‑Data Algorithm Design • Performance Tuning
+• Tools & Platforms: Git • Docker • AWS (EC2, S3) • CI/CD Pipelines
+• Collaboration & Methodologies: Agile/Scrum • Cross‑Functional Team Leadership • Data Visualization (D3.js, Chart.js)`;
 
-My expertise includes full-stack development, microservices architecture, database design, and API development. I've successfully led teams of 5-10 engineers and delivered products that generated $10M+ in revenue.
-
-Outside of work, I enjoy contributing to open-source projects, speaking at tech conferences, and mentoring aspiring developers through various programs.`;
-
-  const truncatedAbout = aboutText.split('\n\n').slice(0, 3).join('\n\n');
+  const truncatedAbout = aboutText.split('\n\n').slice(0, 2).join('\n\n');
 
   const allExperiences = [
     {
       id: 1,
-      company: "Google",
-      logo: "G",
-      logoColor: "bg-blue-600",
-      title: "Senior Software Engineer",
-      type: "Full-time",
-      duration: "Jan 2022 - Present · 2 yrs 11 mos",
-      location: "Mountain View, California, United States",
+      company: "Mehta Prop Firm",
+      logo: "M",
+      logoColor: "bg-blue-500",
+      logoUrl: "/images/companies/mehta-prop-firm.jpg",
+      title: "Machine Learning & Data Analyst Intern",
+      type: "Internship",
+      duration: "Jun 2019 - Dec 2021 · 5 mos",
+      location: "Pune · Hybrid",
       description: [
-        "Leading development of high-impact features for Google Search, serving billions of users daily",
-        "Architected scalable solutions resulting in 25% performance improvements and reduced latency",
-        "Mentored 5+ junior engineers and established best practices for code reviews and testing",
-        "Collaborated with cross-functional teams to deliver features used by over 1 billion users",
-        "Implemented microservices architecture that improved system reliability by 40%",
-        "Led technical discussions and design reviews for critical infrastructure components"
+        "Engineered and deployed 4+ sophisticated ML models—spanning classification, regression, and time‑series approaches—slashing overall model compute time by 29%.",
+        "Architected end‑to‑end data pipelines on Hadoop and Python, ingesting and pre‑processing large, heterogeneous datasets to surface key trading and operational insights.",
+        "Transformed complex analytical findings into clear, interactive charts and dashboards (React) for non‑technical stakeholders, accelerating data‑driven decision‑making.",
+        "Collaborated within a 4‑member analytics team and partnered closely with traders to define requirements, validate model outputs, and iterate on predictive strategies.",
+        "Integrated ML endpoints into a Node.js backend, ensuring seamless full‑stack delivery of data services and real‑time scoring capabilities."
       ],
-      skills: ["React", "TypeScript", "Node.js", "Python", "Kubernetes"]
+      skills: ["Python", "Hadoop", "Data Pipelines", "Machine Learning", "React", "Node.js"]
     },
     {
       id: 2,
-      company: "Meta",
-      logo: "M",
-      logoColor: "bg-blue-500",
-      title: "Software Engineer",
-      type: "Full-time",
-      duration: "Jun 2019 - Dec 2021 · 2 yrs 7 mos",
-      location: "Menlo Park, California, United States",
-      description: [
-        "Developed and maintained React components for Facebook's main platform serving 2.8B users",
-        "Collaborated with design teams to implement pixel-perfect UIs and improve user experience",
-        "Optimized component performance resulting in 30% faster page load times",
-        "Built reusable component library used across 15+ product teams",
-        "Participated in on-call rotations and resolved critical production issues"
-      ],
-      skills: ["React", "JavaScript", "GraphQL", "PHP"]
-    },
-    {
-      id: 3,
-      company: "Airbnb",
+      company: "Motilal Oswal Fin Corp",
       logo: "A",
       logoColor: "bg-red-500",
-      title: "Frontend Developer",
-      type: "Full-time",
+      logoUrl: "/images/companies/motilal-oswal.jpg",
+      title: "Software Developer",
+      type: "Internship",
       duration: "Aug 2017 - May 2019 · 1 yr 10 mos",
-      location: "San Francisco, California, United States",
+      location: "Pune · Hybrid",
       description: [
         "Built responsive web applications using React and Redux for Airbnb's booking platform",
         "Implemented accessibility features achieving WCAG 2.1 AA compliance",
         "Optimized for mobile devices resulting in 20% increase in mobile conversions",
         "Collaborated with UX team to A/B test new features and improve user engagement"
       ],
-      skills: ["React", "Redux", "CSS", "JavaScript"]
-    }
+      skills: ["Python", "Machine Learning", "Data Analytics", "React", "Node.js"]
+    },
+    {
+      id: 3,
+      company: "Sutherland",
+      logo: "G",
+      logoColor: "bg-blue-600",
+      logoUrl: "/images/companies/sutherland.jpg",
+      title: "Software Engineer",
+      type: "Internship",
+      duration: "Jan 2022 - Present · 3 mos",
+      location: "Remote",
+      description: [
+        "Designed and optimized complex data‑structuring algorithms for big‑data applications, cutting end‑to‑end processing times by 37%.",
+        "Revamped backend architecture to boost performance and scalability, enabling the system to handle a 2× increase in data throughput.",
+        "Partnered within a 6‑person cross‑functional squad (data engineers & analysts) to translate analytic requirements into high‑efficiency pipelines.",
+        "Leveraged Python, C++, and core DSA principles to build and tune data‑processing modules; interfaced with Node.js and React components for full‑stack integration.",
+      ],
+      skills: ["CPP", "React", "Node.js", "Python", "DSA"]
+    },
+    
   ];
 
   const allEducation = [
     {
       id: 1,
-      school: "Stanford University",
+      school: "Savitribai Phule Pune University",
       logo: "S",
       logoColor: "bg-red-600",
-      degree: "Bachelor of Science - BS, Computer Science",
-      duration: "2013 - 2017",
-      description: "Graduated Magna Cum Laude. Focused on algorithms, data structures, and software engineering principles."
+      logoUrl: "/images/universities/pune-university.jpg",
+      degree: "Bachelor in Engineering - BE, E & Computer Engineering",
+      duration: "2021 - 2025",
+      // description: "Graduated Magna Cum Laude. Focused on algorithms, data structures, and software engineering principles."
     },
     {
       id: 2,
-      school: "UC Berkeley",
-      logo: "UC",
+      school: "KBP Mahavidyalay",
+      logo: "KBP",
       logoColor: "bg-blue-800",
-      degree: "Master of Science - MS, Computer Science",
-      duration: "2017 - 2019",
-      description: "Specialized in Machine Learning and Distributed Systems. Thesis on scalable recommendation systems."
+      logoUrl: "/images/universities/kbp-mahavidyalay.jpg",
+      degree: "Higher Secondary",
+      duration: "2019 - 2021",
+      // description: "Specialized in Machine Learning and Distributed Systems. Thesis on scalable recommendation systems."
     }
   ];
 
@@ -152,6 +183,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       issuer: "Amazon Web Services (AWS)",
       logo: "AWS",
       logoColor: "bg-orange-500",
+      logoUrl: "/images/certifications/aws.jpg",
       issued: "Issued Dec 2023 · Expires Dec 2026",
       credentialId: "AWS-PSA-12345",
       showCredential: true
@@ -162,6 +194,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       issuer: "Google Cloud",
       logo: "G",
       logoColor: "bg-blue-600",
+      logoUrl: "/images/certifications/google-cloud.jpg",
       issued: "Issued Oct 2023 · Expires Oct 2025",
       credentialId: "GCP-PCA-67890",
       showCredential: true
@@ -172,6 +205,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
       issuer: "MongoDB",
       logo: "M",
       logoColor: "bg-green-600",
+      logoUrl: "/images/certifications/mongodb.jpg",
       issued: "Issued Aug 2023 · No Expiration Date",
       credentialId: "MDB-DEV-11111",
       showCredential: false
@@ -202,17 +236,17 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
   ];
 
   const allSkills = [
+    { name: "Python", endorsements: 7 },
+    { name: "Machine Learning", endorsements: 7 },
     { name: "React.js", endorsements: 12 },
     { name: "JavaScript", endorsements: 18 },
     { name: "Node.js", endorsements: 14 },
     { name: "TypeScript", endorsements: 9 },
-    { name: "Python", endorsements: 7 },
+    { name: "CPP", endorsements: 6 },
     { name: "AWS", endorsements: 11 },
     { name: "Docker", endorsements: 8 },
-    { name: "Kubernetes", endorsements: 6 },
-    { name: "GraphQL", endorsements: 5 },
-    { name: "MongoDB", endorsements: 4 },
-    { name: "PostgreSQL", endorsements: 7 },
+    { name: "SQL / NoSQL", endorsements: 5 },
+    { name: "Hadoop", endorsements: 4 },
     { name: "Redis", endorsements: 3 },
     { name: "Git", endorsements: 15 },
     { name: "Agile Methodologies", endorsements: 10 },
@@ -220,35 +254,61 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
   ];
 
   const allInterests = [
-    { name: "Google", type: "Company", followers: "2,847,392", logo: "G", logoColor: "bg-blue-600" },
-    { name: "Apple", type: "Company", followers: "4,521,847", logo: "A", logoColor: "bg-black" },
-    { name: "Sundar Pichai", type: "CEO at Google", followers: "3,245,123", logo: "", logoColor: "bg-gray-300" },
-    { name: "Microsoft", type: "Company", followers: "3,892,456", logo: "M", logoColor: "bg-blue-500" },
-    { name: "Amazon", type: "Company", followers: "2,156,789", logo: "A", logoColor: "bg-orange-500" },
-    { name: "Satya Nadella", type: "CEO at Microsoft", followers: "2,987,654", logo: "", logoColor: "bg-gray-300" },
-    { name: "Tesla", type: "Company", followers: "1,234,567", logo: "T", logoColor: "bg-red-600" },
-    { name: "Netflix", type: "Company", followers: "987,654", logo: "N", logoColor: "bg-red-500" }
+    { name: "Graviton Research Capital LLP", type: "Financial Services", followers: "69,249", logo: "G", logoColor: "bg-blue-600", link: "https://in.linkedin.com/company/gravitonresearchcapital", logoUrl: "/images/interests/graviton.jpg" },
+    { name: "Tower Research Capital", type: "Financial Services", followers: "177,781", logo: "T", logoColor: "bg-black", link: "https://in.linkedin.com/company/tower-research-capital", logoUrl: "/images/interests/tower-research.jpg" },
+    { name: "Jump Trading", type: "Financial Services", followers: "96,130", logo: "JT", logoColor: "bg-orange-500", link: "https://in.linkedin.com/company/jump-trading", logoUrl: "/images/interests/jump-trading.jpg" },
+    { name: "FYERS", type: "Financial Services", followers: "22,703", logo: "F", logoColor: "bg-blue-500", link: "https://in.linkedin.com/company/fyers-securities-pvt-ltd", logoUrl: "/images/interests/fyers.jpg" },
+    { name: "Microsoft", type: "Company", followers: "3,892,456", logo: "M", logoColor: "bg-blue-500", link: "https://www.microsoft.com/", logoUrl: "/images/interests/microsoft.jpg" },
+    { name: "Tesla", type: "Company", followers: "1,234,567", logo: "T", logoColor: "bg-red-600", link: "https://www.tesla.com/", logoUrl: "/images/interests/tesla.jpg" },
+    { name: "Satya Nadella", type: "CEO at Microsoft", followers: "2,987,654", logo: "", logoColor: "bg-gray-300", link: "https://www.linkedin.com/in/satyanadella/", logoUrl: "/images/interests/satya-nadella.jpg" },
+    { name: "Netflix", type: "Company", followers: "987,654", logo: "N", logoColor: "bg-red-500", link: "https://www.netflix.com/", logoUrl: "/images/interests/netflix.jpg" }
   ];
 
   const allPeopleViewed = [
-    { name: "Michael Chen", title: "Product Manager at Apple", mutualConnections: 0 },
-    { name: "Emily Rodriguez", title: "UX Designer at Netflix", mutualConnections: 0 },
-    { name: "David Kim", title: "Data Scientist at Microsoft", mutualConnections: 0 },
-    { name: "Lisa Wang", title: "Engineering Manager at Tesla", mutualConnections: 0 },
-    { name: "James Wilson", title: "DevOps Engineer at Amazon", mutualConnections: 0 },
-    { name: "Maria Garcia", title: "Frontend Developer at Spotify", mutualConnections: 0 }
+    { name: "Michael Chen", title: "Product Manager at Apple", mutualConnections: 0, imageUrl: "/images/people/person1.jpg" },
+    { name: "Emily Rodriguez", title: "UX Designer at Netflix", mutualConnections: 0, imageUrl: "/images/people/person2.jpg" },
+    { name: "David Kim", title: "Data Scientist at Microsoft", mutualConnections: 0, imageUrl: "/images/people/person3.jpg" },
+    { name: "Lisa Wang", title: "Engineering Manager at Tesla", mutualConnections: 0, imageUrl: "/images/people/person4.jpg" },
+    { name: "James Wilson", title: "DevOps Engineer at Amazon", mutualConnections: 0, imageUrl: "/images/people/person5.jpg" },
+    { name: "Maria Garcia", title: "Frontend Developer at Spotify", mutualConnections: 0, imageUrl: "/images/people/person6.jpg" }
   ];
 
   const allPeopleKnow = [
-    { name: "Alex Thompson", title: "Full Stack Developer at Stripe", mutualConnections: 2 },
-    { name: "Jessica Wu", title: "Technical Lead at Amazon", mutualConnections: 5 },
-    { name: "Robert Martinez", title: "Senior Developer at Shopify", mutualConnections: 3 },
-    { name: "Amanda Foster", title: "Software Architect at Adobe", mutualConnections: 4 },
-    { name: "Kevin Chang", title: "Mobile Developer at Uber", mutualConnections: 1 }
+    { name: "Alex Thompson", title: "Full Stack Developer at Stripe", mutualConnections: 2, imageUrl: "/images/people/person7.jpg" },
+    { name: "Jessica Wu", title: "Technical Lead at Amazon", mutualConnections: 5, imageUrl: "/images/people/person8.jpg" },
+    { name: "Robert Martinez", title: "Senior Developer at Shopify", mutualConnections: 3, imageUrl: "/images/people/person9.jpg" },
+    { name: "Amanda Foster", title: "Software Architect at Adobe", mutualConnections: 4, imageUrl: "/images/people/person10.jpg" },
+    { name: "Kevin Chang", title: "Mobile Developer at Uber", mutualConnections: 1, imageUrl: "/images/people/person11.jpg" }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Custom Notification */}
+      {showNotification && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 animate-slide-down">
+          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-4 max-w-sm">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-medium text-gray-900">LinkedIn Clone</p>
+                <p className="text-sm text-gray-600">Please go to LinkedIn Page to Connect</p>
+              </div>
+              <button 
+                onClick={() => setShowNotification(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -291,7 +351,14 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <span className="text-xs mt-1">Notifications</span>
               </div>
               <div className="flex flex-col items-center text-gray-600 hover:text-gray-900 cursor-pointer">
-                <div className="w-6 h-6 bg-gray-300 rounded-full"></div>
+                <img 
+                  src="/images/profile.jpg" 
+                  alt="Profile" 
+                  className="w-6 h-6 rounded-full object-cover"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=30&h=30&fit=crop&crop=face';
+                  }}
+                />
                 <div className="flex items-center">
                   <span className="text-xs mt-1">Me</span>
                   <ChevronDown className="w-3 h-3 mt-1" />
@@ -317,14 +384,24 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
           <div className="lg:col-span-1">
             {/* Profile Card */}
             <div className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-4">
-              <div className="h-16 bg-gradient-to-r from-blue-400 to-purple-500 relative">
+              <div className="h-16 bg-gradient-to-r from-blue-400 to-purple-500 relative overflow-hidden">
+                {/* Cover Photo for Left Sidebar */}
+                <img 
+                  src="/images/profile/cover.jpg" 
+                  alt="Cover" 
+                  className="w-full h-full object-cover opacity-30"
+                />
                 <div className="absolute -bottom-8 left-4">
-                  <div className="w-16 h-16 bg-gray-300 rounded-full border-4 border-white"></div>
+                  <img 
+                    src="/images/profile/profile.jpg" 
+                    alt="Vedant Dindore" 
+                    className="w-16 h-16 rounded-full border-4 border-white object-cover"
+                  />
                 </div>
               </div>
               <div className="pt-12 pb-4 px-4">
-                <h3 className="font-semibold text-gray-900">Sarah Johnson</h3>
-                <p className="text-sm text-gray-600 mb-3">Senior Software Engineer at Google</p>
+                <h3 className="font-semibold text-gray-900">Vedant Dindore</h3>
+                <p className="text-sm text-gray-600 mb-3">React | Python | Machine Learning Practitioner</p>
                 <hr className="border-gray-200 mb-3" />
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
@@ -346,7 +423,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-2">
                   <div className="flex items-center text-sm text-gray-600 hover:text-gray-900 cursor-pointer">
                     <Users className="w-4 h-4 mr-2" />
-                    <span>Frontend Developers Network</span>
+                    <span>Machine Learning Devs</span>
                   </div>
                   <div className="flex items-center text-sm text-gray-600 hover:text-gray-900 cursor-pointer">
                     <Users className="w-4 h-4 mr-2" />
@@ -354,7 +431,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                   </div>
                   <div className="flex items-center text-sm text-gray-600 hover:text-gray-900 cursor-pointer">
                     <Users className="w-4 h-4 mr-2" />
-                    <span>Women in Tech</span>
+                    <span>Financial Firms</span>
                   </div>
                 </div>
                 <h4 className="font-semibold text-gray-900 mt-4 mb-2">Groups</h4>
@@ -377,28 +454,68 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
           <div className="lg:col-span-2">
             {/* Profile Header */}
             <div className="bg-white rounded-lg border border-gray-200 overflow-hidden mb-4">
-              <div className="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 relative">
-                <div className="absolute -bottom-16 left-6">
-                  <div className="w-32 h-32 bg-gray-300 rounded-full border-4 border-white"></div>
+              <div className="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 relative overflow-hidden">
+                {/* Cover Photo */}
+                <img 
+                  src="/images/profile/cover.jpg" 
+                  alt="Cover" 
+                  className="w-full h-full object-cover opacity-40"
+                />
+                <div className="absolute -bottom-16 left-6 z-10">
+                  <img 
+                    src="/images/profile/profile.jpg" 
+                    alt="Vedant Dindore" 
+                    className="w-32 h-32 rounded-full border-4 border-white object-cover shadow-lg"
+                  />
                 </div>
               </div>
               <div className="pt-20 pb-6 px-6">
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h1 className="text-2xl font-bold text-gray-900 mb-1">Sarah Johnson</h1>
-                    <p className="text-lg text-gray-700 mb-1">Senior Software Engineer at Google</p>
+                    <h1 className="text-2xl font-bold text-gray-900 mb-1">Vedant Dindore</h1>
+                    <p className="text-lg text-gray-700 mb-1">React | Python | Machine Learning Practitioner</p>
                     <div className="flex items-center text-sm text-gray-600 mb-2">
                       <MapPin className="w-4 h-4 mr-1" />
-                      <span>San Francisco, California, United States</span>
+                      <span>Pune, India</span>
                     </div>
                     <div className="flex items-center space-x-1 text-sm mb-4">
                       <span className="text-blue-600 font-semibold">500+ connections</span>
                       <span className="text-gray-400">•</span>
-                      <button className="text-blue-600 hover:underline">Contact info</button>
+                      <button 
+                        onClick={handleContactInfoClick}
+                        className="text-blue-600 hover:underline"
+                      >
+                        Contact info
+                      </button>
+                      <span className="text-gray-400">•</span>
+                      <button 
+                        onClick={handleMailClick}
+                        className="text-blue-600 hover:underline"
+                      >
+                        Mail
+                      </button>
+                      <span className="text-gray-400">•</span>
+                      <button 
+                        onClick={handleGithubClick}
+                        className="text-blue-600 hover:underline"
+                      >
+                        GitHub
+                      </button>
+                    </div>
+                    <div className="flex items-center space-x-1 text-sm mb-4">
+                      <button 
+                        onClick={handlePortfolioClick}
+                        className="text-blue-600 hover:underline font-semibold"
+                      >
+                        Portfolio
+                      </button>
                     </div>
                   </div>
                   <div className="flex space-x-2">
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 font-semibold">
+                    <button 
+                      onClick={handleConnectClick}
+                      className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 font-semibold"
+                    >
                       Connect
                     </button>
                     <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50 font-semibold">
@@ -409,7 +526,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                     </button>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 mt-4">
+                {/* <div className="flex items-center space-x-4 mt-4">
                   <div className="flex items-center space-x-2">
                     <div className="w-8 h-8 bg-gray-200 rounded"></div>
                     <span className="text-sm font-semibold">Google</span>
@@ -418,7 +535,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                     <div className="w-8 h-8 bg-gray-200 rounded"></div>
                     <span className="text-sm font-semibold">Stanford University</span>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -470,7 +587,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 </div>
                 <div className="space-y-4">
                   <div className="pb-4">
-                    <p className="text-sm text-gray-600 mb-2">Sarah posted this • 2d</p>
+                    <p className="text-sm text-gray-600 mb-2">Vedant posted this • 2d</p>
                     <p className="text-gray-900 mb-3">
                       Excited to share that our team just shipped a major feature that improves page load times by 40%! 🚀
                       <br /><br />
@@ -497,7 +614,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                     </div>
                   </div>
                   <div className="pb-4">
-                    <p className="text-sm text-gray-600 mb-2">Sarah commented on this • 5d</p>
+                    <p className="text-sm text-gray-600 mb-2">Vedant commented on this • 5d</p>
                     <p className="text-gray-900 mb-3">
                       Great insights on microservices architecture! I've found that proper service boundaries are crucial for maintainability.
                     </p>
@@ -526,7 +643,16 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-6">
                   {(showAllExperiences ? allExperiences : allExperiences.slice(0, 2)).map((exp) => (
                     <div key={exp.id} className="flex space-x-4">
-                      <div className={`w-12 h-12 ${exp.logoColor} rounded flex items-center justify-center text-white font-bold`}>
+                      <img 
+                        src={exp.logoUrl} 
+                        alt={exp.company}
+                        className="w-12 h-12 rounded object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className={`w-12 h-12 ${exp.logoColor} rounded flex items-center justify-center text-white font-bold hidden`}>
                         {exp.logo}
                       </div>
                       <div className="flex-1">
@@ -609,7 +735,16 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-6">
                   {(showAllEducation ? allEducation : allEducation.slice(0, 1)).map((edu) => (
                     <div key={edu.id} className="flex space-x-4">
-                      <div className={`w-12 h-12 ${edu.logoColor} rounded flex items-center justify-center text-white font-bold`}>
+                      <img 
+                        src={edu.logoUrl} 
+                        alt={edu.school}
+                        className="w-12 h-12 rounded object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className={`w-12 h-12 ${edu.logoColor} rounded flex items-center justify-center text-white font-bold hidden`}>
                         {edu.logo}
                       </div>
                       <div className="flex-1">
@@ -639,7 +774,16 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-6">
                   {(showAllLicenses ? allLicenses : allLicenses.slice(0, 2)).map((license) => (
                     <div key={license.id} className="flex space-x-4">
-                      <div className={`w-12 h-12 ${license.logoColor} rounded flex items-center justify-center text-white font-bold text-xs`}>
+                      <img 
+                        src={license.logoUrl} 
+                        alt={license.issuer}
+                        className="w-12 h-12 rounded object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className={`w-12 h-12 ${license.logoColor} rounded flex items-center justify-center text-white font-bold text-xs hidden`}>
                         {license.logo}
                       </div>
                       <div className="flex-1">
@@ -669,7 +813,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
             </div>
 
             {/* Volunteer Experience Section */}
-            <div className="bg-white rounded-lg border border-gray-200 mb-4">
+            {/* <div className="bg-white rounded-lg border border-gray-200 mb-4">
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Volunteer experience</h2>
                 <div className="space-y-6">
@@ -696,7 +840,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                   </button>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Skills Section */}
             <div className="bg-white rounded-lg border border-gray-200 mb-4">
@@ -728,13 +872,98 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
               </div>
             </div>
 
+            {/* Projects Section */}
+            <div className="bg-white rounded-lg border border-gray-200 mb-4">
+              <div className="p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">Projects</h2>
+                <div className="space-y-3">
+                  {/* Options Data Manager Project */}
+                  <a href={projectLink1} target="_blank" rel="noopener noreferrer" className="block hover:bg-gray-50 rounded transition">
+                    <h4 className="font-medium text-blue-700 underline hover:text-blue-900">Options Data Manager</h4>
+                    <p className="text-sm text-gray-600">Jan 2023 - Present</p>
+                    <p className="text-sm text-gray-700 mt-1">
+                      {showMoreProject1 ? (
+                        <>
+                          Created and maintain a popular React component library with 10k+ GitHub stars. 
+                          Used by 500+ companies worldwide.
+                        </>
+                      ) : (
+                        <>Created and maintain a popular React component library...</>
+                      )}
+                    </p>
+                    <button 
+                      type="button"
+                      onClick={e => { e.preventDefault(); setShowMoreProject1(!showMoreProject1); }}
+                      className="text-blue-600 hover:underline mt-2 font-semibold flex items-center text-sm"
+                    >
+                      {showMoreProject1 ? (
+                        <>
+                          <span>...see less</span>
+                          <ChevronUp className="w-4 h-4 ml-1" />
+                        </>
+                      ) : (
+                        <>
+                          <span>...see more</span>
+                          <ChevronDown className="w-4 h-4 ml-1" />
+                        </>
+                      )}
+                    </button>
+                  </a>
+                  {/* Progress Tracker Project */}
+                  <a href={projectLink2} target="_blank" rel="noopener noreferrer" className="block hover:bg-gray-50 rounded transition">
+                    <h4 className="font-medium text-blue-700 underline hover:text-blue-900">Progress Tracker</h4>
+                    <p className="text-sm text-gray-600">Jun 2022 - Dec 2022</p>
+                    <p className="text-sm text-gray-700 mt-1">
+                      {showMoreProject2 ? (
+                        <>
+                          Built a fully integrated productivity tracker that gamifies personal task management using financial market mechanics.<br/>
+                          <b>Key Features:</b> Stock-based Progress Tracker: Users define "stocks" (e.g., Coding Prep, Projects, To-Dos), with task completions rewarding/deducting points tied to each stock.<br/>
+                          <b>Dynamic Indexing:</b> A custom index is calculated in real time, visualized through line charts, reflecting overall progress and task trends.<br/>
+                          <b>Simulated Trading System:</b> Users can buy/sell their own stocks, adding a market-based urgency and accountability to task completion.<br/>
+                          <b>Options Segment:</b> Implemented realistic options trading mechanisms including decay, intrinsic value, and time value — mapped to task timelines and deadlines.<br/>
+                          <b>Strategic Tools:</b><br/>
+                          Journal and notes system for personal reflections<br/>
+                          Task calendar with daily/monthly views<br/>
+                          Pattern detection for behavioral analysis<br/>
+                          Retrospection mode for progress reviews<br/>
+                          Strategic planning modules for goal setting<br/>
+                          <b>Tech Stack:</b> [Mention your stack here, e.g., React, Node.js, MongoDB, D3.js, Python, etc.]<br/>
+                          <b>Outcome:</b><br/>
+                          Created a psychologically engaging system that merges productivity with gamified trading, encouraging timely execution of goals through simulated financial stakes.
+                        </>
+                      ) : (
+                        <>Built a fully integrated productivity tracker that gamifies personal task management using financial market mechanics...</>
+                      )}
+                    </p>
+                    <button 
+                      type="button"
+                      onClick={e => { e.preventDefault(); setShowMoreProject2(!showMoreProject2); }}
+                      className="text-blue-600 hover:underline mt-2 font-semibold flex items-center text-sm"
+                    >
+                      {showMoreProject2 ? (
+                        <>
+                          <span>...see less</span>
+                          <ChevronUp className="w-4 h-4 ml-1" />
+                        </>
+                      ) : (
+                        <>
+                          <span>...see more</span>
+                          <ChevronDown className="w-4 h-4 ml-1" />
+                        </>
+                      )}
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Accomplishments Section */}
             <div className="bg-white rounded-lg border border-gray-200 mb-4">
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Accomplishments</h2>
                 <div className={`space-y-6 ${!showAllAccomplishments ? 'max-h-96 overflow-hidden' : ''}`}>
                   {/* Publications */}
-                  <div>
+                  {/* <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Publications</h3>
                     <div className={`space-y-3 ${!showAllAccomplishments ? 'max-h-24 overflow-hidden' : ''}`}>
                       <div>
@@ -752,53 +981,32 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                         </p>
                       </div>)}
                     </div>
-                  </div>
-
-                  {/* Projects */}
-                  {showAllAccomplishments && (<div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Projects</h3>
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="font-medium text-gray-900">Open Source React Component Library</h4>
-                        <p className="text-sm text-gray-600">Jan 2023 - Present</p>
-                        <p className="text-sm text-gray-700 mt-1">
-                          Created and maintain a popular React component library with 10k+ GitHub stars. 
-                          Used by 500+ companies worldwide.
-                        </p>
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">AI-Powered Code Review Tool</h4>
-                        <p className="text-sm text-gray-600">Jun 2022 - Dec 2022</p>
-                        <p className="text-sm text-gray-700 mt-1">
-                          Built an ML-powered tool that automatically reviews code for security vulnerabilities and performance issues.
-                        </p>
-                      </div>
-                    </div>
-                  </div>)}
+                  </div> */}
 
                   {/* Honors & Awards */}
-                  {showAllAccomplishments && (<div>
+                  <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Honors & awards</h3>
                     <div className="space-y-3">
                       <div>
-                        <h4 className="font-medium text-gray-900">Google Peer Bonus Award</h4>
-                        <p className="text-sm text-gray-600">Google · Nov 2023</p>
+                        <h4 className="font-medium text-gray-900">Algo Building Competition</h4>
+                        <p className="text-sm text-gray-600">HDFC | Deutsche Bank · Nov 2023</p>
                         <p className="text-sm text-gray-700 mt-1">
-                          Recognized for exceptional collaboration and technical leadership in cross-team initiatives.
+                           Secured first place in a competitive algorithm development event
+                           organized by HDFC and Deutsche Bank.
                         </p>
                       </div>
                       <div>
-                        <h4 className="font-medium text-gray-900">Women in Tech Leadership Award</h4>
-                        <p className="text-sm text-gray-600">Tech Women Network · Mar 2023</p>
+                        <h4 className="font-medium text-gray-900">Hack to the Future</h4>
+                        <p className="text-sm text-gray-600">Finastra · Mar 2023</p>
                         <p className="text-sm text-gray-700 mt-1">
                           Awarded for outstanding contributions to diversity and inclusion in technology.
                         </p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
 
                   {/* Courses */}
-                  {showAllAccomplishments && (<div>
+                  <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Courses</h3>
                     <div className="space-y-3">
                       <div>
@@ -810,7 +1018,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                         <p className="text-sm text-gray-600">Educative · 2022</p>
                       </div>
                     </div>
-                  </div>)}
+                  </div>
                 </div>
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
@@ -829,15 +1037,30 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Interests</h2>
                 <div className="grid grid-cols-2 gap-4">
                   {(showAllInterests ? allInterests : allInterests.slice(0, 6)).map((interest, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                      <div className={`w-12 h-12 ${interest.logoColor} rounded ${interest.logo ? 'flex items-center justify-center text-white font-bold' : 'rounded-full'}`}>
+                    <a
+                      key={index}
+                      href={interest.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition"
+                    >
+                      <img 
+                        src={interest.logoUrl} 
+                        alt={interest.name}
+                        className="w-12 h-12 rounded object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className={`w-12 h-12 ${interest.logoColor} rounded ${interest.logo ? 'flex items-center justify-center text-white font-bold' : 'rounded-full'} hidden`}>
                         {interest.logo || ''}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 text-sm">{interest.name}</h4>
+                        <h4 className="font-semibold text-blue-700 underline hover:text-blue-900 text-sm">{interest.name}</h4>
                         <p className="text-xs text-gray-600">{interest.type} • {interest.followers} followers</p>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
@@ -866,7 +1089,7 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
             <div className="bg-white rounded-lg border border-gray-200 mb-4">
               <div className="p-4">
                 <h3 className="font-semibold text-gray-900 mb-3">Public profile & URL</h3>
-                <p className="text-sm text-gray-600 mb-2">www.linkedin.com/in/sarah-johnson</p>
+                <p className="text-sm text-gray-600 mb-2">www.linkedin.com/in/vedant-dindore</p>
               </div>
             </div>
 
@@ -877,7 +1100,16 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-3">
                   {(showAllPeopleViewed ? allPeopleViewed : allPeopleViewed.slice(0, 5)).map((person, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                      <img 
+                        src={person.imageUrl} 
+                        alt={person.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
+                      />
+                      <div className="w-12 h-12 bg-gray-300 rounded-full hidden"></div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-sm text-gray-900">{person.name}</h4>
                         <p className="text-xs text-gray-600">{person.title}</p>
@@ -906,7 +1138,16 @@ Outside of work, I enjoy contributing to open-source projects, speaking at tech 
                 <div className="space-y-3">
                   {(showAllPeopleKnow ? allPeopleKnow : allPeopleKnow.slice(0, 3)).map((person, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-12 h-12 bg-gray-300 rounded-full"></div>
+                      <img 
+                        src={person.imageUrl} 
+                        alt={person.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
+                      />
+                      <div className="w-12 h-12 bg-gray-300 rounded-full hidden"></div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-sm text-gray-900">{person.name}</h4>
                         <p className="text-xs text-gray-600">{person.title}</p>
