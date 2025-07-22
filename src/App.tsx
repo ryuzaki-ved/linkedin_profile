@@ -44,6 +44,7 @@ function App() {
   const [expandedExperienceIds, setExpandedExperienceIds] = useState(new Set());
   const [showMoreProject1, setShowMoreProject1] = useState(false);
   const [showMoreProject2, setShowMoreProject2] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const projectLink1 = "https://github.com/yourusername/options-data-manager"; // TODO: Replace with actual link
   const projectLink2 = "https://github.com/yourusername/progress-tracker"; // TODO: Replace with actual link
@@ -258,10 +259,10 @@ Key Skills:
     { name: "Tower Research Capital", type: "Financial Services", followers: "177,781", logo: "T", logoColor: "bg-black", link: "https://in.linkedin.com/company/tower-research-capital", logoUrl: "/images/interests/tower-research.jpg" },
     { name: "Jump Trading", type: "Financial Services", followers: "96,130", logo: "JT", logoColor: "bg-orange-500", link: "https://in.linkedin.com/company/jump-trading", logoUrl: "/images/interests/jump-trading.jpg" },
     { name: "FYERS", type: "Financial Services", followers: "22,703", logo: "F", logoColor: "bg-blue-500", link: "https://in.linkedin.com/company/fyers-securities-pvt-ltd", logoUrl: "/images/interests/fyers.jpg" },
-    { name: "Microsoft", type: "Company", followers: "3,892,456", logo: "M", logoColor: "bg-blue-500", link: "https://www.microsoft.com/", logoUrl: "/images/interests/microsoft.jpg" },
-    { name: "Tesla", type: "Company", followers: "1,234,567", logo: "T", logoColor: "bg-red-600", link: "https://www.tesla.com/", logoUrl: "/images/interests/tesla.jpg" },
-    { name: "Satya Nadella", type: "CEO at Microsoft", followers: "2,987,654", logo: "", logoColor: "bg-gray-300", link: "https://www.linkedin.com/in/satyanadella/", logoUrl: "/images/interests/satya-nadella.jpg" },
-    { name: "Netflix", type: "Company", followers: "987,654", logo: "N", logoColor: "bg-red-500", link: "https://www.netflix.com/", logoUrl: "/images/interests/netflix.jpg" }
+    { name: "Kaggle", type: "IT Services and IT Consulting", followers: "461,185", logo: "", logoColor: "bg-gray-300", link: "https://www.linkedin.com/company/kaggle", logoUrl: "/images/interests/kaggle.jpg" },
+    { name: "Hudson River Trading", type: "Financial Services", followers: "134,935", logo: "N", logoColor: "bg-red-500", link: "https://www.linkedin.com/company/hudson-river-trading", logoUrl: "/images/interests/hrt.jpg" },
+    { name: "Microsoft", type: "Software Development", followers: "25,988,887", logo: "M", logoColor: "bg-blue-500", link: "https://www.linkedin.com/company/microsoft", logoUrl: "/images/interests/microsoft.jpg" },
+    { name: "Tesla", type: "Motor Vehicle Manufacturing", followers: "12,253,461", logo: "T", logoColor: "bg-red-600", link: "https://www.linkedin.com/company/tesla-motors", logoUrl: "/images/interests/tesla.jpg" },
   ];
 
   const allPeopleViewed = [
@@ -876,19 +877,32 @@ Key Skills:
             <div className="bg-white rounded-lg border border-gray-200 mb-4">
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Projects</h2>
-                <div className="space-y-3">
-                  {/* Options Data Manager Project */}
+                <div className="space-y-6">
+                  {/* Options EOD Data Analyzer Project */}
                   <a href={projectLink1} target="_blank" rel="noopener noreferrer" className="block hover:bg-gray-50 rounded transition">
-                    <h4 className="font-medium text-blue-700 underline hover:text-blue-900">Options Data Manager</h4>
+                    <h4 className="font-medium text-blue-700 underline hover:text-blue-900">Options EOD Data Analyzer</h4>
                     <p className="text-sm text-gray-600">Jan 2023 - Present</p>
                     <p className="text-sm text-gray-700 mt-1">
                       {showMoreProject1 ? (
                         <>
-                          Created and maintain a popular React component library with 10k+ GitHub stars. 
-                          Used by 500+ companies worldwide.
+                          Developed a sophisticated financial data analytics platform that processes NSE EOD (End-of-Day) reports and performs advanced quantitative analysis for options trading strategies.<br/>
+                          <b>Core Capabilities:</b> Automated ingestion and preprocessing of large-scale financial datasets with real-time data validation and cleaning pipelines.<br/>
+                          <b>Advanced Analytics:</b><br/>
+                          • Machine Learning Models: Predictive analytics for volatility forecasting and pattern recognition<br/>
+                          • Monte Carlo Simulations: Risk assessment and option pricing using 10,000+ simulation paths<br/>
+                          • Statistical Analysis: Correlation matrices, CVaR, and advanced risk metrics for portfolio optimization<br/>
+                          • Dynamic Volatility Modeling: GARCH and stochastic volatility models for market analysis<br/>
+                          • Pattern Detection: Technical analysis algorithms for identifying support/resistance levels<br/>
+                          <b>Technical Implementation:</b><br/>
+                          • High-performance data processing using NumPy and Pandas for large datasets<br/>
+                          • Real-time analytics dashboard with interactive visualizations (Plotly, D3.js)<br/>
+                          • RESTful API architecture for seamless integration with trading platforms<br/>
+                          • Database optimization for handling multilayered files historical data<br/>
+                          <b>Outcome:</b><br/>
+                          Created a comprehensive quantitative analysis toolkit that processes NSE EOD reports efficiently, providing institutional-grade analytics for options trading strategies with 99.9% data accuracy and sub-second query response times.
                         </>
                       ) : (
-                        <>Created and maintain a popular React component library...</>
+                        <>Developed a sophisticated financial data analytics platform that processes NSE EOD reports and performs advanced quantitative analysis including machine learning, Monte Carlo simulations, and risk metrics...</>
                       )}
                     </p>
                     <button 
@@ -908,6 +922,31 @@ Key Skills:
                         </>
                       )}
                     </button>
+                    {!showMoreProject1 && !showAllProjects && (
+                      <div className="flex items-center space-x-2 mt-2">
+                        <Gem className="w-6 h-4 text-gray-800" />
+                        <div className="text-sm">
+                          <span className="font-bold text-gray-900">Python</span>
+                          <span className="text-gray-600">, </span>
+                          <span className="font-bold text-gray-900">Machine Learning</span>
+                          <span className="text-gray-600"> and </span>
+                          <span className="font-bold text-gray-900">3 additional skills</span>
+                        </div>
+                      </div>
+                    )}
+                    {(showMoreProject1 || showAllProjects) && (
+                      <div className="flex items-center space-x-4 mt-2">
+                        <span className="text-sm font-semibold text-gray-700">Skills:</span>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Python</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Machine Learning</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">NumPy</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Pandas</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Financial Analytics</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">RESTful APIs</span>
+                        </div>
+                      </div>
+                    )}
                   </a>
                   {/* Progress Tracker Project */}
                   <a href={projectLink2} target="_blank" rel="noopener noreferrer" className="block hover:bg-gray-50 rounded transition">
@@ -927,7 +966,7 @@ Key Skills:
                           Pattern detection for behavioral analysis<br/>
                           Retrospection mode for progress reviews<br/>
                           Strategic planning modules for goal setting<br/>
-                          <b>Tech Stack:</b> [Mention your stack here, e.g., React, Node.js, MongoDB, D3.js, Python, etc.]<br/>
+                          <b>Tech Stack:</b> React, Node.js, Python, D3.js, Python, etc.<br/>
                           <b>Outcome:</b><br/>
                           Created a psychologically engaging system that merges productivity with gamified trading, encouraging timely execution of goals through simulated financial stakes.
                         </>
@@ -952,7 +991,40 @@ Key Skills:
                         </>
                       )}
                     </button>
+                    {!showMoreProject2 && !showAllProjects && (
+                      <div className="flex items-center space-x-2 mt-2">
+                        <Gem className="w-6 h-4 text-gray-800" />
+                        <div className="text-sm">
+                          <span className="font-bold text-gray-900">React</span>
+                          <span className="text-gray-600">, </span>
+                          <span className="font-bold text-gray-900">Node.js</span>
+                          <span className="text-gray-600"> and </span>
+                          <span className="font-bold text-gray-900">4 additional skills</span>
+                        </div>
+                      </div>
+                    )}
+                    {(showMoreProject2 || showAllProjects) && (
+                      <div className="flex items-center space-x-4 mt-2">
+                        <span className="text-sm font-semibold text-gray-700">Skills:</span>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">React</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Node.js</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Python</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">D3.js</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">JavaScript</span>
+                          <span className="px-2 py-1 bg-gray-100 text-xs rounded">Data Visualization</span>
+                        </div>
+                      </div>
+                    )}
                   </a>
+                </div>
+                <div className="border-t border-gray-200 pt-4 mt-4 text-center">
+                  <button 
+                    onClick={() => setShowAllProjects(!showAllProjects)}
+                    className="text-base font-semibold text-gray-600 hover:text-blue-600"
+                  >
+                    {showAllProjects ? 'Show less' : 'Show all projects →'}
+                  </button>
                 </div>
               </div>
             </div>
@@ -1006,7 +1078,7 @@ Key Skills:
                   </div>
 
                   {/* Courses */}
-                  <div>
+                  {/* <div>
                     <h3 className="font-semibold text-gray-900 mb-2">Courses</h3>
                     <div className="space-y-3">
                       <div>
@@ -1018,7 +1090,7 @@ Key Skills:
                         <p className="text-sm text-gray-600">Educative · 2022</p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="border-t border-gray-200 pt-4 mt-4 text-center">
                   <button 
